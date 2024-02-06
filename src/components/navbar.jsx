@@ -1,26 +1,25 @@
 import React from "react";
 import logoImg from "../assets/img/news.png";
-import { NewsData } from "./newsdata";
 
 export class NavBarComponent extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            searchQuery : "",
+            searchQuery: '',
         }
     }
 
-    componentDidMount() {
-        this.props.onSearch(this.state.initialQuery);
-      }
-
     handleSearch = () => {
-        this.props.onSearch(this.state.searchQuery);
+            this.props.onSearch(this.state.searchQuery)
     };
     // MANUAL SEARCHING
-    // handleInputChange = (e) =>{
-    //     this.setState({ searchQuery: e.target.value});
-    // }
+    handleInputChange = (e) =>{
+        const searchQuery = e.target.value.toLowerCase();
+       
+        this.setState({
+          searchQuery: searchQuery
+        });
+      };
 
     // AUTO SEARCHING
     // handleInputChange = (e) => {
@@ -35,7 +34,7 @@ export class NavBarComponent extends React.Component {
             <nav>
                 <div className="navbar container flex" >
                     <a href="#home">
-                        <img src={logoImg} className="news-logo" />
+                        <img src={logoImg} className="news-logo"  alt="Logo"/>
                     </a>
 
                     <div className="search-bar flex">
@@ -45,7 +44,7 @@ export class NavBarComponent extends React.Component {
 
                         {/* MANUAL SEARCHING */}
                         <input type="input" name="" className="search-input" id="search-input" value={this.state.searchQuery} onChange={this.handleInputChange} />
-                        <button className="search-button" id="search-button" onClick={this.handleSearch}>Search</button>
+                        <button className="search-button" id="search-button" onClick={this.handleSearch }>Search</button>
                     </div>
                 </div>
             </nav>
