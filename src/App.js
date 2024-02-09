@@ -6,7 +6,7 @@ import { NewsData } from './components/newsdata';
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       searchQuery: '',
       initialQuery : 'Indonesia',

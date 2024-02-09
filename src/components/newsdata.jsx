@@ -11,10 +11,11 @@ export class NewsData extends React.Component {
       isLoading: false,
     };
   }
-
+//
   async fetchData() {
     const url = this.props.searchQuery
-      ? `https://newsapi.org/v2/everything?q=${this.props.searchQuery}&apiKey=fcd3a3e20d5b4b1591d33dd9e6ca2668`
+      // ? `https://newsapi.org/v2/everything?q=${this.props.searchQuery}&apiKey=fcd3a3e20d5b4b1591d33dd9e6ca2668`
+      ? `https://newsapi.org/v2/everything?qInTitle=${this.props.searchQuery}&apiKey=1f75fdb1ac9645af8d3e176292ac7907`
       : `https://newsapi.org/v2/everything?q=Indonesia&apiKey=fcd3a3e20d5b4b1591d33dd9e6ca2668`;
     const res = await axios.get(url);
     const dataJson = res.data.articles;
